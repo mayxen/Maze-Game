@@ -48,7 +48,7 @@ MonoBehaviour:
     Z: 20
   CellPrefab: {fileID: 3524206263764411078, guid: 1bb394a62abc4e340ab153832baa6a2a,
     type: 3}
-  GenerationStepDelay: 0.01
+  GenerationStepDelay: 0.001
   PassagePrefab: {fileID: 3492713317847746984, guid: ae8854a19d0003147b71e013320d217a,
     type: 3}
   WallPrefabs:

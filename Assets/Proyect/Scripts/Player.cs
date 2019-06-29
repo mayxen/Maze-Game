@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    MazeCell currentCell;
-
+    public int speed;
+    
+    Rigidbody rb;
     public void SetLocation(MazeCell cell)
     {
-        currentCell = cell;
         transform.localPosition = new Vector3(cell.transform.localPosition.x,0.5f, cell.transform.localPosition.z);
-    }
-
-    void Move(MazeDirecction direction)
-    {
-        MazeCellEdge edge = currentCell.GetEdge(direction);
-
-        if (edge is MazePassage)
-            SetLocation(edge.otherCell);
-    }
-    
+        rb = GetComponent<Rigidbody>();
+    }   
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        //TODO tengo que hacer la rotación normal xD 
+        float moveHorizontal = Input.GetAxis("Horizontal") * (speed ) * Time.deltaTime;
+        float moveVertical = Input.GetAxis("Vertical") * (speed) * Time.deltaTime;
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        transform.localPosition += transform.TransformDirection(movement);  
     }
 }
